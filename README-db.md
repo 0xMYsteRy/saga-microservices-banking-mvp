@@ -36,15 +36,15 @@ CREATE DATABASE IF NOT EXISTS mystery_db
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
-CREATE USER IF NOT EXISTS 'baas_user'@'%'
-  IDENTIFIED BY 'baas_password';
+CREATE USER IF NOT EXISTS 'mystery'@'%'
+  IDENTIFIED BY 'mystery';
 
-GRANT ALL PRIVILEGES ON mystery_db.* TO 'baas_user'@'%';
+GRANT ALL PRIVILEGES ON mystery_db.* TO 'mystery'@'%';
 FLUSH PRIVILEGES;
 ```
 
 Notes:
-- The username/password pair **must** match the Spring `application.yml` values (`baas_user` / `baas_password`).
+- The username/password pair **must** match the Spring `application.yml` values (`mystery` / `mystery`).
 - Granting on `'%'` lets both host processes and Docker containers connect. Restrict to `'localhost'` if you prefer local-only access.
 
 ## 4. Verify Connectivity
@@ -52,7 +52,7 @@ Notes:
 Use the application credentials to confirm access:
 
 ```bash
-mysql --protocol=TCP -h 127.0.0.1 -P 3306 -ubaas_user -pbaas_password -e "SHOW DATABASES;"
+mysql --protocol=TCP -h 127.0.0.1 -P 3306 -umystery -pmystery -e "SHOW DATABASES;"
 ```
 
 You should see `mystery_db` listed alongside the default schemas.

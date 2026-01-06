@@ -7,8 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mystery_db
-      MYSQL_USER: baas_user
-      MYSQL_PASSWORD: baas_password
+      MYSQL_USER: mystery
+      MYSQL_PASSWORD: mystery
     ports:
       - "3306:3306"
     healthcheck:
@@ -68,8 +68,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=user-service
       - OTEL_TRACES_EXPORTER=none
@@ -95,8 +95,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=account-service
       - OTEL_TRACES_EXPORTER=none
@@ -122,8 +122,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=transaction-service
       - OTEL_TRACES_EXPORTER=none
@@ -149,8 +149,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=payment-service
       - OTEL_TRACES_EXPORTER=none
@@ -176,8 +176,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=notification-service
       - OTEL_TRACES_EXPORTER=none
@@ -201,8 +201,8 @@ services:
       - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/baas/protocol/openid-connect/certs
       - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/baas
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/mystery_db?useSSL=false&allowPublicKeyRetrieval=true
-      - SPRING_DATASOURCE_USERNAME=baas_user
-      - SPRING_DATASOURCE_PASSWORD=baas_password
+      - SPRING_DATASOURCE_USERNAME=mystery
+      - SPRING_DATASOURCE_PASSWORD=mystery
       - JAVA_TOOL_OPTIONS="-javaagent:/app/libs/opentelemetry-javaagent-2.17.0.jar"
       - OTEL_SERVICE_NAME=saga-orchestrator-service
       - OTEL_TRACES_EXPORTER=none

@@ -26,11 +26,11 @@ Example: `V20260106_1200__add_account_limits.sql`
    - Include `BEGIN;` / `COMMIT;` if the change spans multiple statements that must succeed together.
 3. **Apply locally (host MySQL)**
    ```bash
-   mysql --protocol=TCP -h 127.0.0.1 -P 3306 -ubaas_user -pbaas_password mystery_db < config/db/migration/V20260106_1200__add_account_limits.sql
+   mysql --protocol=TCP -h 127.0.0.1 -P 3306 -umystery -pmystery mystery_db < config/db/migration/V20260106_1200__add_account_limits.sql
    ```
 4. **Apply inside Docker Compose MySQL** (if it is running)
    ```bash
-   docker compose exec mysql mysql -ubaas_user -pbaas_password mystery_db < /app/config/db/migration/V20260106_1200__add_account_limits.sql
+   docker compose exec mysql mysql -umystery -pmystery mystery_db < /app/config/db/migration/V20260106_1200__add_account_limits.sql
    ```
 5. **Verify**
    - Run `DESCRIBE table_name;` or appropriate SELECTs.
