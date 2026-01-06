@@ -96,7 +96,7 @@ graph LR
     C -->|Admin| D[Gửi thông báo Admin]
     C -->|Account Holder| E[Mở tài khoản]
     E --> F[Gửi email chào mừng]
-    E -->|Lỗi| G[Xóa user (bồi hoàn)]
+    E -->|Lỗi| G[Xóa user / Bồi hoàn]
     D --> H[Hoàn tất]
     F --> H
     G --> I[Thất bại]

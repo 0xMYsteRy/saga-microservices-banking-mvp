@@ -97,7 +97,7 @@ graph LR
     C -->|Admin| D[Send Admin Notification]
     C -->|Account Holder| E[Create Account]
     E --> F[Send Welcome Notification]
-    E -->|failure| G[Delete User (Compensation)]
+    E -->|failure| G[Delete User / Compensation]
     D --> H[Saga Complete]
     F --> H
     G --> I[Saga Failed]
