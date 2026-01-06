@@ -7,6 +7,11 @@ if [ -z "$JAVA_HOME" ] && [ -d "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk
   echo "JAVA_HOME set to $JAVA_HOME"
 fi
 
+# Use a repo-local Maven cache to avoid macOS home-directory restrictions
+MAVEN_LOCAL_REPO="${MAVEN_LOCAL_REPO:-$PWD/.m2-cache}"
+mkdir -p "$MAVEN_LOCAL_REPO"
+echo "Using Maven local repository at $MAVEN_LOCAL_REPO"
+
 # Stop any running docker-compose services
 docker-compose down || true
 # Stop any running Docker containers and remove them
@@ -22,7 +27,7 @@ echo "Building microservices Docker images..."
 echo "========================================="
 
 # Build all the Docker images using Maven package goal
-mvn clean package -DskipTests -Ddocker.skip=true
+mvn -Dmaven.repo.local="$MAVEN_LOCAL_REPO" clean package -DskipTests -Ddocker.skip=true
 
 # Check if the Maven build was successful
 if [ $? -ne 0 ]; then

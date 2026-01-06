@@ -27,6 +27,7 @@ Thumbs.db
 
 # Build
 /build/
+.m2-cache/
 
 # Others
 *.swp
