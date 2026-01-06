@@ -138,7 +138,7 @@ graph LR
 
 1. **Docker Compose (đầy đủ hạ tầng + dịch vụ)**
    ```bash
-   ./start-docker-compse.sh
+   ./start-docker-compose.sh
    ```
    Script sẽ dừng container cũ, build Maven, sau đó `docker-compose up -d`.
 

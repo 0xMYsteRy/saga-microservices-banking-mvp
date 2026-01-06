@@ -139,7 +139,7 @@ graph LR
 
 1. **Start everything via Docker Compose**
    ```bash
-   ./start-docker-compse.sh
+   ./start-docker-compose.sh
    ```
    This script stops existing containers, builds all services with Maven, and launches the full stack.
 
