@@ -149,10 +149,9 @@ graph LR
    ./start-springboot-services.sh
    ```
 
-3. **Endpoints**
-   - API Gateway: `http://localhost:8080`
-   - Service Discovery Dashboard: `http://localhost:8761`
-   - Keycloak: `http://localhost:8180`
+### Runtime Status
+
+`./start-docker-compose.sh` builds every service image and attempts to launch the full stack. On the latest run, Kafka (`broker`) and Keycloak started successfully, but the MySQL container failed to bind to `0.0.0.0:3306` because that port is already occupied on the host. Stop the host MySQL instance (or change the port mapping in `docker-compose.yml`) before re-running the script so that the remaining services—MySQL, service-discovery, api-gateway, user-service, account-service, payment-service, transaction-service, notification-service, and saga-orchestrator-service—can start cleanly.
 
 ## Observability
 - OpenTelemetry Java agent attached to each service prints trace/span IDs in logs.
