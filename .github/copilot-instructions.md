@@ -1,15 +1,16 @@
-**Instructions for Code Generation and Contribution**
+**Copilot Contribution Checklist**
 
-1. We use Maven for managing Java dependencies.
-2. Always explain your solution before writing any code.
-3. Write code only after receiving my approval.
-4. Implement code in very small and incremental steps.
-5. Ensure all code is compatible with Java 21 and uses its latest features and best practices.
-6. Before using a library, verify that it is available in the Maven Central Repository. If it is not, request my approval before proceeding.
-7. When implementing new features, always follow the existing code style, structure, and patterns.
-8. Add new dependencies to the parent `pom.xml` file for version management.
-9. Before adding a new dependency, check if it is already defined in the parent `pom.xml`. If not, ask for my approval before adding it.
-10. Keep the code simple, readable, and only generate what is necessary for the feature.
-11. Use Lombok annotations to reduce boilerplate code.
-12. Don't over-engineer solutions; keep them straightforward and maintainable.
-13. use imports instead of fully qualified class names to keep the code clean and readable.
+1. Use Maven for all Java dependency management.
+2. Describe your plan or solution approach before generating any code.
+3. Wait for explicit approval before writing or modifying code.
+4. Work in very small, incremental steps so reviews stay focused.
+5. Target Java 21 and leverage its modern language features and APIs.
+6. Only add libraries that exist in Maven Central; otherwise request approval.
+7. Follow the current code style, structure, and established patterns.
+8. Declare new dependencies in the parent `pom.xml` for centralized versioning.
+9. Check whether a dependency already exists in the parent POM before adding a duplicate; ask before introducing new ones.
+10. Generate only the code that is necessary—keep implementations simple and readable.
+11. Prefer Lombok annotations to minimize boilerplate.
+12. Avoid over-engineering; prioritize clarity and maintainability.
+13. Use normal import statements instead of fully qualified class names inside code blocks.
+14. Always work on a feature branch, open a new pull request, and merge it into `master`; never push directly to `master`. Re-read this checklist every time you run.
