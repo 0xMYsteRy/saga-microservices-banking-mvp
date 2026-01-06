@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.4.6</version>
+    <relativePath />
+  </parent>
+  <groupId>com.mystery</groupId>
+  <artifactId>banking-as-service</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Banking as a Service - Parent</name>
+  <description>Parent project for Banking as a Service microservices platform</description>
+  <modules>
+    <module>common-lib</module>
+    <module>account-service</module>
+    <module>user-service</module>
+    <module>payment-service</module>
+    <module>transaction-service</module>
+    <module>notification-service</module>
+    <module>api-gateway</module>
+    <module>service-discovery</module>
+    <module>saga-orchestrator-service</module>
+    <!-- Modules will be added here as submodules are created -->
+  </modules>
+  <properties>
+    <java.version>21</java.version>
+    <spring-boot.version>3.4.6</spring-boot.version>
+    <spring-cloud.version>2024.0.1</spring-cloud.version>
+    <opentelemetry.javaagent.version>2.17.0</opentelemetry.javaagent.version>
+    <mysql.version>8.4.0</mysql.version>
+    <lombok.version>1.18.32</lombok.version>
+    <spring-boot-maven-plugin.version>3.4.6</spring-boot-maven-plugin.version>
+    <jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <version>${mysql.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <optional>true</optional>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-webflux</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.opentelemetry.javaagent</groupId>
+        <artifactId>opentelemetry-javaagent</artifactId>
+        <version>${opentelemetry.javaagent.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+
+      <!-- Command/Event Framework Dependencies (lightweight approach) -->
+      <!-- Only keep non-Spring Boot dependencies here -->
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot-maven-plugin.version}</version>
+          <configuration>
+            <excludes>
+              <exclude>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+              </exclude>
+            </excludes>
+          </configuration>
+          <executions>
+            <execution>
+              <id>default</id>
+              <phase>none</phase>
+            </execution>
+            <execution>
+              <id>repackage-only</id>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+              <phase>package</phase>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.google.cloud.tools</groupId>
+          <artifactId>jib-maven-plugin</artifactId>
+          <version>${jib-maven-plugin.version}</version>
+          <configuration>
+            <from>
+              <image>eclipse-temurin:21-jre</image>
+            </from>
+            <to>
+              <image>mystery/baas-${project.artifactId}:${project.version}</image>
+            </to>
+          </configuration>
+          <executions>
+            <execution>
+              <id>build-docker-image</id>
+              <phase>package</phase>
+              <goals>
+                <goal>dockerBuild</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

@@ -1,0 +1,109 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/api/accounts/**
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payments/**
+        - id: transaction-service
+          uri: lb://TRANSACTION-SERVICE
+          predicates:
+            - Path=/api/transactions/**
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api/notifications/**
+        - id: saga-orchestrator-service
+          uri: lb://SAGA-ORCHESTRATOR-SERVICE
+          predicates:
+            - Path=/api/saga/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8089/realms/baas/protocol/openid-connect/certs}
+
+# =====================
+# Server Configuration
+# =====================
+server:
+  port: 8080
+
+# =====================
+# Eureka Service Discovery
+# =====================
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+# =====================
+# Logging Configuration
+# =====================
+logging:
+  pattern:
+    console: "[${spring.application.name}] [%X{trace_id:-N/A} %X{span_id:-N/A}] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n"
+  level:
+    com.mystery: INFO
+    org.springframework.cloud.gateway: INFO
+    root: INFO
+
+# =====================
+# Management Endpoints
+# =====================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway,metrics,routes,circuitbreakers
+  endpoint:
+    health:
+      show-details: always
+
+# =====================
+# Resilience4j Circuit Breaker Configuration
+# =====================
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        ignoreExceptions:
+          - org.springframework.web.server.ResponseStatusException
+    instances:
+      usersService:
+        baseConfig: default
+      accountsService:
+        baseConfig: default
+      transactionsService:
+        baseConfig: default
+      paymentsService:
+        baseConfig: default
+      notificationsService:
+        baseConfig: default
+      sagaInstancesService:
+        baseConfig: default

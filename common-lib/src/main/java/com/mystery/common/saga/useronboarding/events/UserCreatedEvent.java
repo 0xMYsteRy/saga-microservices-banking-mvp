@@ -1,0 +1,37 @@
+package com.mystery.common.saga.useronboarding.events;
+
+import java.time.Instant;
+
+import com.mystery.common.entity.User;
+import com.mystery.common.saga.event.BaseEvent;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+/**
+ * Event indicating a user was successfully created.
+ */
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
+public class UserCreatedEvent extends BaseEvent {
+    @NotNull
+    private User user;
+
+    public static UserCreatedEvent create(Long sagaId, User user) {
+        return UserCreatedEvent.builder()
+            .eventId(java.util.UUID.randomUUID().toString())
+            .sagaId(sagaId)
+            .timestamp(Instant.now())
+            .success(true)
+            .errorMessage(null)
+            .user(user)
+            .build();
+    }
+}
