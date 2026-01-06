@@ -1,7 +1,7 @@
 package com.mystery.common;
 
 /**
- * Application constants for the Banking as a Service platform.
+ * Application constants for the saga-microservices-banking-mvp platform.
  * Contains only essential shared values across microservices.
  */
 public final class AppConstants {

@@ -1,4 +1,4 @@
-# Nền tảng Banking as a Service
+# Nền tảng saga-microservices-banking-mvp
 
 Nền tảng ngân hàng theo mô hình dịch vụ (BaaS) được xây dựng bằng kiến trúc microservice Spring Boot và phối hợp giao dịch bằng mẫu **saga**. README này giúp bạn hiểu nhanh hệ thống làm gì, cách các dịch vụ giao tiếp, và vì sao saga bảo đảm tính nhất quán cho các nghiệp vụ ngân hàng.
 

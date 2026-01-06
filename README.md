@@ -1,4 +1,4 @@
-# Banking as a Service Platform
+# saga-microservices-banking-mvp
 
 A saga-orchestrated banking platform implemented as a Spring Boot microservice suite. The goal of this README is to highlight the high-level architecture and explain how the saga pattern is applied to mission-critical banking workflows.
 

@@ -8,7 +8,7 @@
     "realm": [
       {
         "name": "BAAS_ADMIN",
-        "description": "Banking as a Service Admin Role"
+        "description": "saga-microservices-banking-mvp Admin Role"
       },
       {
         "name": "ACCOUNT_HOLDER",
@@ -102,4 +102,3 @@
     }
   ]
 }
-

@@ -41,7 +41,7 @@ fi
 
 # Install parent POM first to resolve dependency issues
 if [ -f "pom.xml" ]; then
-  echo "Installing parent POM (banking-as-service) into local Maven repository..."
+  echo "Installing parent POM (saga-microservices-banking-mvp) into local Maven repository..."
   mvn clean install -N
 else
   echo "Root pom.xml not found! Skipping parent POM installation."

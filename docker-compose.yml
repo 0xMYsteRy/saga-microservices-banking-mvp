@@ -1,4 +1,4 @@
-# Banking as Service
+# saga-microservices-banking-mvp
 version: '3.8'
 services:
   mysql:
