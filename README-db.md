@@ -32,14 +32,14 @@ mysql --protocol=TCP -h 127.0.0.1 -P 3306 -uroot
 Execute the following SQL statements from the MySQL prompt (or pass them via the `-e` flag):
 
 ```sql
-CREATE DATABASE IF NOT EXISTS baas_db
+CREATE DATABASE IF NOT EXISTS mystery_db
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
 CREATE USER IF NOT EXISTS 'baas_user'@'%'
   IDENTIFIED BY 'baas_password';
 
-GRANT ALL PRIVILEGES ON baas_db.* TO 'baas_user'@'%';
+GRANT ALL PRIVILEGES ON mystery_db.* TO 'baas_user'@'%';
 FLUSH PRIVILEGES;
 ```
 
@@ -55,7 +55,7 @@ Use the application credentials to confirm access:
 mysql --protocol=TCP -h 127.0.0.1 -P 3306 -ubaas_user -pbaas_password -e "SHOW DATABASES;"
 ```
 
-You should see `baas_db` listed alongside the default schemas.
+You should see `mystery_db` listed alongside the default schemas.
 
 ## 5. Troubleshooting
 
@@ -63,4 +63,4 @@ You should see `baas_db` listed alongside the default schemas.
 - **Authentication plugin errors**: Homebrew’s MySQL uses `caching_sha2_password` by default. The provided commands rely on the default plugin; avoid forcing `mysql_native_password` unless the server loads that plugin.
 - **Firewall / sandbox restrictions**: when running commands from the Codex CLI, you might need elevated permissions for network access. Re-run the command with escalation if you see `Operation not permitted` errors.
 
-With the schema and user in place, all Spring Boot services can connect to `jdbc:mysql://localhost:3306/baas_db` using the shared credentials, and Flyway/JPA will handle table creation automatically on startup.
+With the schema and user in place, all Spring Boot services can connect to `jdbc:mysql://localhost:3306/mystery_db` using the shared credentials, and Flyway/JPA will handle table creation automatically on startup.
