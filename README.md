@@ -1,6 +1,14 @@
 # saga-microservices-banking-mvp
 
-A saga-orchestrated banking platform implemented as a Spring Boot microservice suite. The goal of this README is to highlight the high-level architecture and explain how the saga pattern is applied to mission-critical banking workflows.
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)
+![Java](https://img.shields.io/badge/Java-21-007396?style=flat-square&logo=java)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=flat-square&logo=springboot)
+![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-2024.0.1-6DB33F?style=flat-square&logo=spring)
+![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-Event%20Streaming-231F20?style=flat-square&logo=apachekafka)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square&logo=docker)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+
+Saga-microservices-banking-mvp demonstrates a production-grade, saga-orchestrated banking platform built on Spring Boot microservices with shared observability, messaging, and security infrastructure.
 
 ## High-Level Architecture
 
