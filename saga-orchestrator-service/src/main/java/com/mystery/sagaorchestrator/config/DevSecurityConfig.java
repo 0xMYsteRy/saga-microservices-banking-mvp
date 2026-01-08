@@ -16,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
  * To use this configuration, start the application with:
  * -Dspring.profiles.active=dev
  * 
- * @author Rajeswaran
  * @since 1.0.0
  */
 @Configuration
