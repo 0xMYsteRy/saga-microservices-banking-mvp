@@ -25,6 +25,7 @@
     <module>api-gateway</module>
     <module>service-discovery</module>
     <module>saga-orchestrator-service</module>
+    <module>loan-service</module>
     <!-- Modules will be added here as submodules are created -->
   </modules>
   <properties>
