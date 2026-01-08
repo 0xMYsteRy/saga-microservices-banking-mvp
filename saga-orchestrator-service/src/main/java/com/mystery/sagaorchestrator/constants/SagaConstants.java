@@ -9,7 +9,6 @@ package com.mystery.sagaorchestrator.constants;
  * - Single source of truth for saga names
  * - Better maintainability
  * 
- * @author Rajeswaran
  * @since 1.0.0
  */
 public final class SagaConstants {

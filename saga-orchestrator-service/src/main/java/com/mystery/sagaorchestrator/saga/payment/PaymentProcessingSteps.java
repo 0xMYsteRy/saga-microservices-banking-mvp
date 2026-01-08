@@ -1,17 +1,5 @@
 package com.mystery.sagaorchestrator.saga.payment;
 
-/**
- * Enumeration of payment processing saga steps.
- *
- * Defines the sequence of steps in the payment processing saga flow:
- * 1. VALIDATE_PAYMENT - Validate payment details and business rules
- * 2. PROCESS_PAYMENT - Process the payment transaction
- * 3. RECORD_TRANSACTION - Record transaction details for audit trail
- * 4. SEND_NOTIFICATION - Send payment confirmation notification
- *
- * @author Rajeswaran
- * @since 1.0.0
- */
 public enum PaymentProcessingSteps {
 
     /**

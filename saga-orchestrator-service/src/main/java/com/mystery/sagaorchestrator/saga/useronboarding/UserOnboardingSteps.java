@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
  * This enum provides type safety and eliminates magic strings for step names.
  * Each step represents a specific phase in the user onboarding process.
  * 
- * @author Rajeswaran
  * @since 1.0.0
  */
 @Getter

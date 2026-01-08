@@ -14,7 +14,6 @@ import org.springframework.cloud.stream.function.StreamBridge;
  * This abstract class provides common fields and default implementations for saga operations
  * and delegates to the SagaStateManager for state management.
  * 
- * @author Rajeswaran
  * @since 1.0.0
  */
 @RequiredArgsConstructor

@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
  * Request object to initiate a payment processing saga.
  * Contains all necessary information to process a payment transaction.
  *
- * @author Rajeswaran
  * @since 1.0.0
  */
 @Data
