@@ -10,9 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {
+@Table(name = "users", 
+    uniqueConstraints = {
         @UniqueConstraint(columnNames = "username")
-})
+    },
+    indexes = {
+        @Index(name = "idx_username", columnList = "username")
+    }
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,7 +37,7 @@ public class User {
     private String email;
     private String fullName;
     
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role")
     @Builder.Default

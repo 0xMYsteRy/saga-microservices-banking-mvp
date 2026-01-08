@@ -13,7 +13,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "accounts")
+@Table(name = "accounts",
+    indexes = {
+        @Index(name = "idx_account_number", columnList = "accountNumber", unique = true),
+        @Index(name = "idx_user_id", columnList = "userId"),
+        @Index(name = "idx_user_name", columnList = "userName")
+    }
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +31,7 @@ public class Account {
     @Version
     private Long version;
     
+    @Column(unique = true)
     private String accountNumber;
     private String accountType;
     private String userId;
