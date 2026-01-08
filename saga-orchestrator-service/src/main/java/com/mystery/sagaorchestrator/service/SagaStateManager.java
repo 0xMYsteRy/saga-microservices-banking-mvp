@@ -3,6 +3,7 @@ package com.mystery.sagaorchestrator.service;
 import com.mystery.sagaorchestrator.entity.SagaInstance;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SagaStateManager {
 
@@ -18,5 +19,8 @@ public interface SagaStateManager {
 
     // Saga query operations
     List<SagaInstance> getAllSagaInstances();
+
+    // Get single saga instance by id
+    Optional<SagaInstance> getSagaInstanceById(Long sagaId);
 
 }

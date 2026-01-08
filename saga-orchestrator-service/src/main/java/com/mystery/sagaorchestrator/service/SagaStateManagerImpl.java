@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -78,6 +77,13 @@ public class SagaStateManagerImpl implements SagaStateManager {
     public List<SagaInstance> getAllSagaInstances() {
         log.info("Retrieving all saga instances with step instances");
         return sagaInstanceRepository.findAllWithStepInstances();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<SagaInstance> getSagaInstanceById(Long sagaId) {
+        log.info("Retrieving saga instance by id={}", sagaId);
+        return sagaInstanceRepository.findById(sagaId);
     }
 
     // Private helper methods
